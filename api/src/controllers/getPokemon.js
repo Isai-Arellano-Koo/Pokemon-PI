@@ -14,6 +14,9 @@ const getAllPokemons = async (req, res) => {
       const attack = poke.stats.find((obj) => obj.stat.name === "attack");
       const defense = poke.stats.find((obj) => obj.stat.name === "defense");
       const hp = poke.stats.find((obj) => obj.stat.name === "hp");
+      const speed = poke.stats.find((obj) => obj.stat.name === "speed");
+      const types = poke.types.map(type => type.type.name)
+
       return {
         id: poke.id,
         name: poke.name,
@@ -21,6 +24,10 @@ const getAllPokemons = async (req, res) => {
         health: hp.base_stat,
         attack: attack.base_stat,
         defense: defense.base_stat,
+        speed: speed.base_stat,
+        height: poke.height,
+        weight: poke.weight,
+        types: types
       };
     });
 
@@ -44,6 +51,9 @@ const getPokemonById = async (req, res) => {
     const attack = pokemon.stats.find((obj) => obj.stat.name === "attack");
     const defense = pokemon.stats.find((obj) => obj.stat.name === "defense");
     const hp = pokemon.stats.find((obj) => obj.stat.name === "hp");
+    const speed = pokemon.stats.find((obj) => obj.stat.name === "speed");
+    const types = pokemon.types.map(type => type.type.name)
+
     const pokemonJSON = {
       id: pokemon.id,
       name: pokemon.name,
@@ -51,6 +61,11 @@ const getPokemonById = async (req, res) => {
       health: hp.base_stat,
       attack: attack.base_stat,
       defense: defense.base_stat,
+      speed: speed.base_stat,
+      height: pokemon.height,
+      weight: pokemon.weight,
+      types: types
+      
     };
 
     res.status(200).json(pokemonJSON);
@@ -71,6 +86,9 @@ const getPokemonByName = async (req, res) => {
     const attack = pokemon.stats.find((obj) => obj.stat.name === "attack");
     const defense = pokemon.stats.find((obj) => obj.stat.name === "defense");
     const hp = pokemon.stats.find((obj) => obj.stat.name === "hp");
+    const speed = pokemon.stats.find((obj) => obj.stat.name === "speed");
+    const types = pokemon.types.map(type => type.type.name)
+
     const pokemonJSON = {
       id: pokemon.id,
       name: pokemon.name,
@@ -78,6 +96,10 @@ const getPokemonByName = async (req, res) => {
       health: hp.base_stat,
       attack: attack.base_stat,
       defense: defense.base_stat,
+      speed: speed.base_stat,
+      height: pokemon.height,
+      weight: pokemon.weight,
+      types: types
     };
 
     res.status(200).json(pokemonJSON);

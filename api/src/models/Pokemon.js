@@ -30,12 +30,12 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     speed: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     height: {
       type: DataTypes.FLOAT,
-      allowNull: false
+      allowNull: true
     },
     weight: {
       type: DataTypes.FLOAT,
@@ -44,13 +44,3 @@ module.exports = (sequelize) => {
   }, {timestamps: false});
 };
 
-
-// ID. \*
-// -  Nombre. \*
-// -  Imagen. \*
-// -  Vida. \*
-// -  Ataque. \*
-// -  Defensa. \*
-// -  Velocidad.
-// -  Altura.
-// -  Peso.

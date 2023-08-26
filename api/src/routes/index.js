@@ -3,6 +3,7 @@ const { Router } = require('express');
 // Ejemplo: const authRouter = require('./auth.js');
 const {getPokemonById, getPokemonByName, getAllPokemons} = require('../controllers/getPokemon');
 const getTypes = require('../controllers/getTypes');
+const postPokemons = require('../controllers/postPokemons');
 
 
 const router = Router();
@@ -16,9 +17,12 @@ router.get('/pokemons', (req, res) => {
         getAllPokemons(req, res)
     }
 })
-router.get('/pokemons', getAllPokemons)
+
 router.get('/pokemons/:id', getPokemonById)
+
 router.get('/types', getTypes)
+
+router.post('/pokemons', postPokemons)
 
 
 module.exports = router;
