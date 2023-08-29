@@ -1,34 +1,52 @@
-import './App.css';
-import axios from 'axios';
-import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
-import Nav from './components/Nav/Nav';
-import LandingPage from './components/LandingPage/LandingPage';
-import Cards from './components/Cards/Cards';
-import { useState } from 'react';
-
-
-
+import "./App.css";
+import axios from "axios";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import Nav from "./components/Nav/Nav";
+import LandingPage from "./components/LandingPage/LandingPage";
+import Cards from "./components/Cards/Cards";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { addPokemon, addPokemonFront } from "./redux/actions";
+import Detail from "./components/Detail/Detail";
 
 function App() {
-  const [pokemons, setPokemons] = useState([])
+  const pokemons = useSelector(state => state.pokemons)
+  const dispatch = useDispatch();
+  const location = useLocation()
 
+  useEffect(() => {
+    axios("http://localhost:3001/pokemons").then(({ data }) => {
+      data.map(poke => dispatch(addPokemon(poke)))
+    }).catch(error => {
+      console.log(error)
+    })
+  }, []);
 
   const onSearch = async (name) => {
     try {
-        const response = await axios(`http://localhost:3001/pokemons?name=${name}`)
-  
-        const data = response.data;
-        setPokemons((oldPokemons) => [data, ...oldPokemons])
+      const response = await axios(
+        `http://localhost:3001/pokemons?name=${name}`
+      );
+
+      const data = response.data;
+      if(data.name && !pokemons.find(pokemon => pokemon.name === name)) {
+        dispatch(addPokemonFront(data))
+      } else {
+        window.alert('Personaje Repetido')
+      }
+      
     } catch (error) {
-        console.log(error.message)
+      console.log(error.message);
     }
-  }
+  };
   return (
     <div className="App">
-    <Nav onSearch={onSearch}/>
+    {location.pathname !== '/detail/:name' ?  <Nav onSearch={onSearch} /> : null}
+      
       <Routes>
-        <Route path='/' element={<LandingPage/>}/>
-        <Route path='/home' element={<Cards pokemons={pokemons}/>}/>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/home" element={<Cards pokemons={pokemons} />} />
+        <Route path="/detail/:name" element={<Detail/>} />
       </Routes>
     </div>
   );
