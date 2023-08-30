@@ -6,6 +6,7 @@ const getPokemonById = require('../controllers/getPokemonById')
 const getPokemonByName = require('../controllers/getPokemonByName')
 const getTypes = require('../controllers/getTypes');
 const postPokemons = require('../controllers/postPokemons');
+const getPokemonBD = require('../controllers/getPokemonsDB');
 
 
 const router = Router();
@@ -21,6 +22,8 @@ router.get('/pokemons', (req, res) => {
 })
 
 router.get('/pokemons/:id', getPokemonById)
+
+router.get('/pokemonsdb', getPokemonBD)
 
 router.get('/types', getTypes)
 

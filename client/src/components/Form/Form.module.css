@@ -1,0 +1,157 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.typesContainer {
+    max-width: 30rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+   margin: 1rem;
+}
+.typesDiv {
+    border-radius: 1rem;
+    width: 3rem;
+    height: 3rem; 
+    overflow: hidden;
+}
+
+.types {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.nameType {
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+.active {
+    background-color: red;
+}
+
+.flying {
+    background-image: url(../../images/volador.webp);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center; 
+  }
+  
+  .ice {
+    background-image: url(../../images/hielo.webp);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center; 
+  }
+  .normal{
+    background-image: url(../../images/normal.webp);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center;
+  }
+  .poison {
+    background-image: url(../../images/veneno.webp);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center;
+  }
+  .rock {
+    background-image: url(../../images/roca.webp);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center;
+  }
+  .ghost {
+    background-image: url(../../images/fantasma.webp);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center;
+  }
+  .psychic {
+    background-image: url(../../images/psiquico.webp);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center;
+  }
+  .ground {
+    background-image: url(../../images/tierra.webp);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center;
+  }
+  .steel {
+    background-image: url(../../images/acero.webp);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center;
+  }
+  .electric {
+    background-image: url(../../images/electrico.webp);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center;
+  }
+  .fairy {
+    background-image: url(../../images/hada.webp);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center;
+  }
+  .fighting {
+    background-image: url(../../images/lucha.webp);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center;
+  }
+  .water {
+    background-image: url(../../images/agua.webp);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center;
+  }
+  .shadow { 
+    background-image: url(../../images/volador.webp);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center;
+  }
+  .fire {
+    background-image: url(../../images/fuego.webp);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center;
+  }
+  .dragon {
+    background-image: url(../../images/dragon.webp);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center;
+  }
+  .unknown {
+    background-image: url(../../images/volador.webp);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center;
+  }
+  .bug {
+    background-image: url(../../images/bicho.webp);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center;
+  }
+  .grass {
+    background-image: url(../../images/planta.webp);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center;
+  }
+  .dark {
+    background-image: url(../../images/siniestro.webp);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center;
+  }
+  

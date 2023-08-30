@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addPokemon, addPokemonFront } from "./redux/actions";
 import Detail from "./components/Detail/Detail";
+import Form from "./components/Form/Form";
 
 function App() {
   const pokemons = useSelector(state => state.pokemons)
@@ -47,6 +48,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/home" element={<Cards pokemons={pokemons} />} />
         <Route path="/detail/:name" element={<Detail/>} />
+        <Route path="/create" element={<Form/>}/>
       </Routes>
     </div>
   );

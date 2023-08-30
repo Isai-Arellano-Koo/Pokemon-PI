@@ -1,4 +1,7 @@
 .nav {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
     background-color:burlywood;
     padding: 1rem;
 }

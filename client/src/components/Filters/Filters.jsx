@@ -21,10 +21,10 @@ const Filters = () => {
   }, [])
 
   const handleFilter = (e) => {
-    if(e.target.value !== 'Alls') {
-      dispatch(filterCards(e.target.value))
-    } else {
+    if(e.target.value === 'Alls') {
       dispatch(orderCards('default'))
+    } else {
+      dispatch(filterCards(e.target.value))
     }
   }
  
@@ -35,6 +35,13 @@ const Filters = () => {
       <option value='' disabled>--Select</option>
       <option value='Alls'>Alls</option>
         {types.map((type) => <option className={style.options} key={type.id} value={type.name}>{type.name}</option>)}
+      </select>
+
+    <p>Filtro base de datos: </p>
+      <select onChange={handleFilter}>
+        <option>---Select</option>
+        <option value='API'>API</option>
+        <option value='DATABASE'>DATABASE</option>
       </select>
     </div>
   )

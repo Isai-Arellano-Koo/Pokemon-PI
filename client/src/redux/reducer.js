@@ -1,6 +1,7 @@
 const initialState = {
   pokemons: [],
   pokemonsOrderDefault: [],
+  pokemonsBaseDeDatos: []
 };
 
 const rootReducer = (state = initialState, action) => {
