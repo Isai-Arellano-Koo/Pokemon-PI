@@ -23,7 +23,7 @@ router.get('/pokemons', (req, res) => {
 
 router.get('/pokemons/:id', getPokemonById)
 
-router.get('/pokemonsdb', getPokemonBD)
+router.get('/db', getPokemonBD)
 
 router.get('/types', getTypes)
 

@@ -14,7 +14,7 @@ const Cards = ({ pokemons }) => {
     <div>
       <Pagination page={page} setPage={setPage} max={max} />
       <Order/>
-      <Filters />
+      <Filters pokemons = {pokemons}/>
       <div className={style.cardsContainer}>
         {pokemons
           ?.slice((page - 1) * toPage, (page - 1) * toPage + toPage)

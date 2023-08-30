@@ -85,27 +85,27 @@ const Form = () => {
         </div>
         <div>
           <label>HP: </label>
-          <input type="number" name="health" value={dataForm.health} onChange={handleInputChange}/>
+          <input type="text" name="health" value={dataForm.health} onChange={handleInputChange}/>
         </div>
         <div>
           <label>Attack: </label>
-          <input type="number" name="attack" value={dataForm.attack} onChange={handleInputChange}/>
+          <input type="text" name="attack" value={dataForm.attack} onChange={handleInputChange}/>
         </div>
         <div>
           <label>Defense: </label>
-          <input type="number" name="defense" value={dataForm.defense} onChange={handleInputChange}/>
+          <input type="text" name="defense" value={dataForm.defense} onChange={handleInputChange}/>
         </div>
         <div>
           <label>Speed: </label>
-          <input type="number" name='speed' value={dataForm.speed} onChange={handleInputChange}/>
+          <input type="text" name='speed' value={dataForm.speed} onChange={handleInputChange}/>
         </div>
         <div>
           <label>Height: </label>
-          <input type="number" name="height" value={dataForm.height} onChange={handleInputChange}/>
+          <input type="text" name="height" value={dataForm.height} onChange={handleInputChange}/>
         </div>
         <div>
           <label>Weight: </label>
-          <input type="number" name="weight" value={dataForm.weight} onChange={handleInputChange}/>
+          <input type="text" name="weight" value={dataForm.weight} onChange={handleInputChange}/>
         </div>
         <div className={style.typesContainer}>
           {types?.map((type) => (
