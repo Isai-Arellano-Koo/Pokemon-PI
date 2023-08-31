@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
-import style from './Filters.module.css'
-import { filterCards, orderCards, pokemonsApi, pokemonsDB } from '../../redux/actions'
+import style from './Filterstype.module.css'
+import { filterCards } from '../../redux/actions'
 
-const Filters = ({pokemons}) => {
+const FiltersType = () => {
   const dispatch = useDispatch()
   const [types, setTypes] = useState([])
 
@@ -21,13 +21,8 @@ const Filters = ({pokemons}) => {
   }, [])
 
   const handleFilter = (e) => {
-    if(e.target.value === 'DATABASE') {
-      dispatch(pokemonsDB())
-    } else if (e.target.value === 'API') {
-      dispatch(pokemonsApi())
-    }
-     else if(e.target.value === 'All') {
-      dispatch(orderCards('default'))
+     if(e.target.value === 'All') {
+      dispatch(filterCards("ALL"))
     } else {
       dispatch(filterCards(e.target.value))
     }
@@ -44,15 +39,8 @@ const Filters = ({pokemons}) => {
         {types.map((type) => <option className={style.options} key={type.id} value={type.name}>{type.name}</option>)}
       </select>
 
-    <p>Filtro base de datos: </p>
-      <select onChange={handleFilter}>
-        <option>---Select</option>
-        <option value='All' >All</option>
-        <option value='API'>API</option>
-        <option value='DATABASE'>DATABASE</option>
-      </select>
     </div>
   )
 }
 
-export default Filters
+export default FiltersType

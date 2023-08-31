@@ -1,9 +1,11 @@
+
+
 const initialState = {
   pokemons: [],
   pokemonsTotales: [],
   pokemonsOrderDefault: [],
   pokemonsDB: [],
-  dataOrigin: {origin: 'ALL'},
+  dataOrigin: { origin: "ALL" },
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -30,7 +32,20 @@ const rootReducer = (state = initialState, action) => {
       const allPokemonsForOrder = [...state.pokemons];
 
       if (action.payload === "default") {
-        return { ...state, pokemons: state.pokemonsOrderDefault };
+        if(state.dataOrigin.origin === "DB") {
+            return {...state, pokemons: state.pokemonsDB}
+        } else if(state.dataOrigin.origin === "API") {
+            const pokemonsFromAPI = state.pokemonsOrderDefault.filter((pokemon) => {
+                const idNotInDB = !state.pokemonsDB.some(
+                  (pokemonDB) => pokemonDB.id === pokemon.id
+                );
+                return idNotInDB;
+              });
+            return {...state, pokemons: pokemonsFromAPI}
+        } else {
+            return { ...state, pokemons: state.pokemonsOrderDefault };
+        }
+        
       } else if (payload === "MAS_ATAQUE") {
         allPokemonsForOrder.sort((a, b) => b.attack - a.attack);
       } else if (payload === "MENOS_ATAQUE") {
@@ -44,33 +59,47 @@ const rootReducer = (state = initialState, action) => {
         pokemons: allPokemonsForOrder,
       };
 
-      case "FILTER":
-        let filteredPokemons = [];
-        if (state.dataOrigin.origin === 'DB') {
-          filteredPokemons = state.pokemonsDB.filter((pokemon) =>
-            pokemon.types.some((type) => type.name === action.payload)
-          );
-        } else if (state.dataOrigin.origin === 'ALL') {
-          filteredPokemons = state.pokemonsTotales.filter((pokemon) =>
-            pokemon.types.some((type) => type.name === action.payload)
-          );
-        } else if (state.dataOrigin.origin === 'API') {
-          const pokemonsFromAPI = state.pokemonsOrderDefault.filter((pokemon) => {
-            // Verifica si el ID del pokemon no coincide con ningún ID en pokemonsDB
+    case "FILTER":
+      let filteredPokemons = [];
+      if (action.payload === "ALL") {
+        if (state.dataOrigin.origin === "DB") {
+          filteredPokemons = state.pokemonsDB;
+        } else if (state.dataOrigin.origin === "API") {
+          filteredPokemons = state.pokemonsOrderDefault.filter((pokemon) => {
             const idNotInDB = !state.pokemonsDB.some(
               (pokemonDB) => pokemonDB.id === pokemon.id
             );
             return idNotInDB;
           });
+        }
+      } else {
+        if (state.dataOrigin.origin === "DB") {
+          filteredPokemons = state.pokemonsDB.filter((pokemon) =>
+            pokemon.types.some((type) => type.name === action.payload)
+          );
+        } else if (state.dataOrigin.origin === "ALL") {
+          filteredPokemons = state.pokemonsTotales.filter((pokemon) =>
+            pokemon.types.some((type) => type.name === action.payload)
+          );
+        } else if (state.dataOrigin.origin === "API") {
+          const pokemonsFromAPI = state.pokemonsOrderDefault.filter(
+            (pokemon) => {
+              const idNotInDB = !state.pokemonsDB.some(
+                (pokemonDB) => pokemonDB.id === pokemon.id
+              );
+              return idNotInDB;
+            }
+          );
           filteredPokemons = pokemonsFromAPI.filter((pokemon) =>
             pokemon.types.some((type) => type.name === action.payload)
           );
         }
-      
-        return {
-          ...state,
-          pokemons: filteredPokemons,
-        };
+      }
+
+      return {
+        ...state,
+        pokemons: filteredPokemons,
+      };
 
     case "ADD_POKEMONS_DB_ARRAY":
       return {
@@ -82,12 +111,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         pokemons: state.pokemonsDB,
-        dataOrigin: {origin: 'BD'},
+        dataOrigin: { origin: "DB" },
       };
 
     case "POKEMONS_API":
       const pokemonsFromAPI = state.pokemonsOrderDefault.filter((pokemon) => {
-        // Verifica si el ID del pokemon no coincide con ningún ID en pokemonsDB
         const idNotInDB = !state.pokemonsDB.some(
           (pokemonDB) => pokemonDB.id === pokemon.id
         );
@@ -96,7 +124,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         pokemons: pokemonsFromAPI,
-        dataOrigin: {origin: 'API'},
+        dataOrigin: { origin: "API" },
       };
 
     default:

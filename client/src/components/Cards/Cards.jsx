@@ -3,7 +3,8 @@ import style from "./Cards.module.css";
 import Card from "../Card/Card";
 import Pagination from "../Pagination/Pagination";
 import Order from "../Order/Order";
-import Filters from "../Filters/Filters";
+import FiltersType from "../Filters/FiltersType";
+import FiltersOrigin from "../FiltersOrigin/FiltersOrigin";
 
 const Cards = ({ pokemons }) => {
   const [page, setPage] = useState(1);
@@ -14,7 +15,8 @@ const Cards = ({ pokemons }) => {
     <div>
       <Pagination page={page} setPage={setPage} max={max} />
       <Order/>
-      <Filters pokemons = {pokemons}/>
+      <FiltersType/>
+      <FiltersOrigin/>
       <div className={style.cardsContainer}>
         {pokemons
           ?.slice((page - 1) * toPage, (page - 1) * toPage + toPage)
