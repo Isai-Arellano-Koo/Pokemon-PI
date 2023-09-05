@@ -42,8 +42,8 @@ const rootReducer = (state = initialState, action) => {
                 return idNotInDB;
               });
             return {...state, pokemons: pokemonsFromAPI}
-        } else {
-            return { ...state, pokemons: state.pokemonsOrderDefault };
+        } else if(state.dataOrigin.origin === "ALL") {
+            return { ...state, pokemons: state.pokemonsTotales };
         }
         
       } else if (payload === "MAS_ATAQUE") {
@@ -71,6 +71,8 @@ const rootReducer = (state = initialState, action) => {
             );
             return idNotInDB;
           });
+        } else if (state.dataOrigin.origin === "ALL") {
+          filteredPokemons = state.pokemonsTotales
         }
       } else {
         if (state.dataOrigin.origin === "DB") {
@@ -126,6 +128,13 @@ const rootReducer = (state = initialState, action) => {
         pokemons: pokemonsFromAPI,
         dataOrigin: { origin: "API" },
       };
+
+    case 'ALL_POKEMONS':
+      return {
+        ...state,
+        pokemons: state.pokemonsTotales,
+        dataOrigin:{ origin: "ALL" }
+      }
 
     default:
       return { ...state };

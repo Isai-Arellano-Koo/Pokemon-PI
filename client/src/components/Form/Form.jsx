@@ -55,7 +55,7 @@ const Form = () => {
         }))
         window.alert('pokemon creado correctamente')
         navigate(-1)
-        console.log({name, image, health, attack, defense, speed, height, weight})
+        
     }
   };
 

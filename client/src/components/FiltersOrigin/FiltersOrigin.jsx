@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { orderCards, pokemonsApi, pokemonsDB } from '../../redux/actions'
+import { pokemonsApi, pokemonsDB, allPokemons } from '../../redux/actions'
 
 
 const FiltersOrigin = () => {
@@ -10,8 +10,8 @@ const FiltersOrigin = () => {
           dispatch(pokemonsDB())
         } else if (e.target.value === 'API') {
           dispatch(pokemonsApi())
-        } else if(e.target.value === 'AllBaseDeDatos') {
-          dispatch(orderCards('default'))
+        } else if(e.target.value === 'AllDB') {
+          dispatch(allPokemons())
         } 
       }
 
@@ -20,7 +20,7 @@ const FiltersOrigin = () => {
         <p>Filtro base de datos: </p>
       <select onChange={handleFilter}>
         <option>---Select</option>
-        <option value='AllBaseDeDatos' >All</option>
+        <option value='AllDB' >All</option>
         <option value='API'>API</option>
         <option value='DATABASE'>DATABASE</option>
       </select>

@@ -82,3 +82,9 @@ export const pokemonsApi = () => {
         type: 'POKEMONS_API'
     }
 }
+
+export const allPokemons = () => {
+  return {
+    type: 'ALL_POKEMONS'
+  }
+}
