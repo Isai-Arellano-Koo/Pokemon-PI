@@ -55,6 +55,7 @@ const Form = () => {
         }))
         window.alert('pokemon creado correctamente')
         navigate(-1)
+        console.log({name, image, health, attack, defense, speed, height, weight})
     }
   };
 
@@ -65,12 +66,16 @@ const Form = () => {
   }
 
   const handleClick = (typeId) => {
+    if(typesActive.length > 4) {
+      return
+    }
     if(typesActive.includes(typeId)) {
         const newArray = typesActive.filter(type => type !== typeId)
         setTypeActive(newArray)
     } else {
         setTypeActive([...typesActive, typeId])
     }
+    console.log(typesActive)
 }
   return (
     <div>
@@ -109,7 +114,7 @@ const Form = () => {
         </div>
         <div className={style.typesContainer}>
           {types?.map((type) => (
-            <button type='button' className={typesActive.includes(type.id) ? `${style.active}` : null} onClick={() => handleClick(type.id)}  key={type.name}>
+            <button type='button' className={typesActive.includes(type.id) ? typesActive.length < 4 ? `${style.active}` : null : null} onClick={() => handleClick(type.id)}  key={type.name}>
               <div className={style.typesDiv}>
                 <span className={`${style[type.name]} ${style.types}`}></span>
               </div>
