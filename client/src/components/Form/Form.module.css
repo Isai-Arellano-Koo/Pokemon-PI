@@ -32,6 +32,18 @@
 .active {
     background-color: red;
 }
+.errors {
+  color: red;
+}
+
+
+
+
+
+
+
+
+
 
 .flying {
     background-image: url(../../images/volador.webp);

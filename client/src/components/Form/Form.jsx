@@ -4,8 +4,10 @@ import style from "./Form.module.css";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createPokemon } from "../../redux/actions";
+import { validation } from "./validation";
 
 const Form = () => {
+  const [errors, setErrors] = useState({})
   const [types, setTypes] = useState([]);
   const [typesActive, setTypeActive] = useState([])
   const [dataForm, setDataForm] = useState({
@@ -39,8 +41,13 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const {name, image, health, attack, defense, speed, height, weight} = dataForm;
+
+    const hasErrors = Object.values(errors).some((error) => error !== '');
+
     if(!name || !image || !health || !attack || !defense){
         window.alert('Faltan Datos Obligatorios')
+    } else if(hasErrors) {
+      window.alert('hay errores')
     } else {
         dispatch(createPokemon({
             name,
@@ -63,10 +70,15 @@ const Form = () => {
     const {name, value} = e.target
 
     setDataForm({...dataForm, [name]: value})
+    validation({...dataForm, [name]: value}, errors, setErrors)
   }
 
   const handleClick = (typeId) => {
-    if(typesActive.length > 4) {
+    if(typesActive.length > 3) {
+      if(typesActive.includes(typeId)) {
+        const newArray = typesActive.filter(type => type !== typeId)
+        setTypeActive(newArray)
+      }
       return
     }
     if(typesActive.includes(typeId)) {
@@ -75,7 +87,6 @@ const Form = () => {
     } else {
         setTypeActive([...typesActive, typeId])
     }
-    console.log(typesActive)
 }
   return (
     <div>
@@ -83,6 +94,7 @@ const Form = () => {
         <div>
           <label>Name: </label>
           <input type="text" name="name" value={dataForm.name} onChange={handleInputChange}/>
+          <span className={style.errors}>{errors.name}</span>
         </div>
         <div>
           <label>Image: </label>
@@ -91,30 +103,36 @@ const Form = () => {
         <div>
           <label>HP: </label>
           <input type="text" name="health" value={dataForm.health} onChange={handleInputChange}/>
+          <span className={style.errors}>{errors.health}</span>
         </div>
         <div>
           <label>Attack: </label>
           <input type="text" name="attack" value={dataForm.attack} onChange={handleInputChange}/>
+          <span className={style.errors}>{errors.attack}</span>
         </div>
         <div>
           <label>Defense: </label>
           <input type="text" name="defense" value={dataForm.defense} onChange={handleInputChange}/>
+          <span className={style.errors}>{errors.defense}</span>
         </div>
         <div>
           <label>Speed: </label>
           <input type="text" name='speed' value={dataForm.speed} onChange={handleInputChange}/>
+          <span className={style.errors}>{errors.speed}</span>
         </div>
         <div>
           <label>Height: </label>
           <input type="text" name="height" value={dataForm.height} onChange={handleInputChange}/>
+          <span className={style.errors}>{errors.height}</span>
         </div>
         <div>
           <label>Weight: </label>
           <input type="text" name="weight" value={dataForm.weight} onChange={handleInputChange}/>
+          <span className={style.errors}>{errors.weight}</span>
         </div>
         <div className={style.typesContainer}>
           {types?.map((type) => (
-            <button type='button' className={typesActive.includes(type.id) ? typesActive.length < 4 ? `${style.active}` : null : null} onClick={() => handleClick(type.id)}  key={type.name}>
+            <button type='button' className={typesActive.includes(type.id) ?`${style.active}` : null} onClick={() => handleClick(type.id)}  key={type.name}>
               <div className={style.typesDiv}>
                 <span className={`${style[type.name]} ${style.types}`}></span>
               </div>
