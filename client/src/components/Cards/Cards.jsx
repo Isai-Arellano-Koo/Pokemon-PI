@@ -12,26 +12,32 @@ const Cards = ({ pokemons }) => {
   const max = Math.ceil(pokemons?.length / toPage);
 
   return (
-    <div>
+    <>
       <Pagination page={page} setPage={setPage} max={max} />
-      <Order/>
-      <FiltersType/>
-      <FiltersOrigin/>
-      <div className={style.cardsContainer}>
-        {pokemons
-          ?.slice((page - 1) * toPage, (page - 1) * toPage + toPage)
-          .map((pokemon) => {
-            return (
-              <Card
-                key={pokemon.id}
-                image={pokemon.image}
-                name={pokemon.name}
-                types={pokemon.types}
-              />
-            );
-          })}
+      <div className={style.cards}>
+        <div className={style.filterOrderDiv}>
+          <Order />
+          <FiltersType />
+          <FiltersOrigin />
+        </div>
+
+        <div className={style.cardsContainer}>
+          {pokemons
+            ?.slice((page - 1) * toPage, (page - 1) * toPage + toPage)
+            .map((pokemon) => {
+              return (
+                <Card
+                  key={pokemon.id}
+                  image={pokemon.image}
+                  name={pokemon.name}
+                  types={pokemon.types}
+                />
+              );
+            })}
+        </div>
       </div>
-    </div>
+      <Pagination page={page} setPage={setPage} max={max} />
+    </>
   );
 };
 

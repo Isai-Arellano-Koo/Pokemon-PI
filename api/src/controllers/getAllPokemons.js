@@ -28,7 +28,7 @@ const getAllPokemons = async (req, res) => {
       return {
         id: poke.id,
         name: poke.name,
-        image: poke.sprites.front_default,
+        image: poke.sprites.other.home.front_default,
         health: hp.base_stat,
         attack: attack.base_stat,
         defense: defense.base_stat,

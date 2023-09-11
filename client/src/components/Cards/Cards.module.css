@@ -1,7 +1,15 @@
+.cards {
+    display: flex;
+    margin: 1rem;
+    gap: 1rem;
+}
 .cardsContainer {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
     margin-bottom: 3rem;
     justify-content: center;
+}
+.filterOrderDiv {
+    color: red;
 }

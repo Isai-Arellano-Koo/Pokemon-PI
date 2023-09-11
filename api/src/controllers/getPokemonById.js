@@ -16,7 +16,7 @@ const getPokemonById = async (req, res) => {
       const pokemonJSON = {
         id: pokemon.id,
         name: pokemon.name,
-        image: pokemon.sprites.front_default,
+        image: pokemon.sprites.other.home.front_default,
         health: hp.base_stat,
         attack: attack.base_stat,
         defense: defense.base_stat,

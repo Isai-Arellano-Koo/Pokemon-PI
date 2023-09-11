@@ -44,7 +44,8 @@ const Form = () => {
 
     const hasErrors = Object.values(errors).some((error) => error !== '');
 
-    if(!name || !image || !health || !attack || !defense){
+
+    if(!name || !image || !health || !attack || !defense || typesActive.length === 0){
         window.alert('Faltan Datos Obligatorios')
     } else if(hasErrors) {
       window.alert('hay errores')

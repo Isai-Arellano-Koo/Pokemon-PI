@@ -1,8 +1,14 @@
+.detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
 .infoContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: bisque;
     margin-top: 5rem;
     gap: 7rem;
 }
@@ -10,6 +16,15 @@
     .infoContainer {
         flex-direction: column;
     }
+}
+.buttonBack {
+  border: none;
+  padding: 1rem;
+  background-color: antiquewhite; 
+  border-radius: 10px;
+  max-width: 6rem;
+  margin-top: 2rem;
+  cursor: pointer;
 }
 .imageContainer {
     width: auto;

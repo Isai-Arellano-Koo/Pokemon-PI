@@ -13,10 +13,10 @@ const handleNext = () => {
 }
   return (
     <div className={style.pagination}>
-      <button onClick={handlePrev}>Prev</button>
+      <button className={style.buttonPage} onClick={handlePrev}>Prev</button>
       <h2>{page}</h2>
       <p> de {max}</p>
-      <button onClick={handleNext}>Next</button>
+      <button className={style.buttonPage} onClick={handleNext}>Next</button>
     </div>
   )
 }

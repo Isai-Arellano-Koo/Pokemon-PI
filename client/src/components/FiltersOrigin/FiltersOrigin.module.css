@@ -1,0 +1,6 @@
+.select {
+    cursor: pointer;
+    border: none;
+    background-color:aquamarine;
+    padding: .5rem;
+}

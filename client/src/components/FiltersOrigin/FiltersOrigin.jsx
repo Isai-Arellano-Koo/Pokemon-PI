@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { pokemonsApi, pokemonsDB, allPokemons } from '../../redux/actions'
+import style from './FiltersOrigin.module.css'
 
 
 const FiltersOrigin = () => {
@@ -17,8 +18,8 @@ const FiltersOrigin = () => {
 
   return (
     <div>
-        <p>Filtro base de datos: </p>
-      <select onChange={handleFilter}>
+        <p>Filter Origin: </p>
+      <select className={style.select} onChange={handleFilter}>
         <option>---Select</option>
         <option value='AllDB' >All</option>
         <option value='API'>API</option>

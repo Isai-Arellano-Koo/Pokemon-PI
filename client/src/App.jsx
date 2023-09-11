@@ -4,7 +4,7 @@ import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Nav from "./components/Nav/Nav";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Cards from "./components/Cards/Cards";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addPokemon, addPokemonFront, addToPokemonDB } from "./redux/actions";
 import Detail from "./components/Detail/Detail";
@@ -51,7 +51,7 @@ function App() {
 
   return (
     <div className="App">
-    {location.pathname !== '/detail/:name' ?  <Nav onSearch={onSearch} /> : null}
+    {location.pathname !== '/' ? !location.pathname.startsWith('/detail/') ? <Nav onSearch={onSearch} /> : null : null}
       
       <Routes>
         <Route path="/" element={<LandingPage />} />

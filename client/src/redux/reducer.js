@@ -132,7 +132,7 @@ const rootReducer = (state = initialState, action) => {
     case 'ALL_POKEMONS':
       return {
         ...state,
-        pokemons: state.pokemonsTotales,
+        pokemons: state.pokemonsOrderDefault,
         dataOrigin:{ origin: "ALL" }
       }
 

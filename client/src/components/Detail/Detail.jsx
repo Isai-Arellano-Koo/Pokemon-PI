@@ -24,7 +24,7 @@ const Detail = () => {
     return () => setPokemon({});
   }, [name]);
   return (
-    <div>
+    <div className={style.detail}>
       <div className={style.infoContainer}>
         <div className={style.imageContainer}>
           <h2 className={style.name}>{pokemon.name}</h2>
@@ -53,7 +53,7 @@ const Detail = () => {
         </div>
       </div>
 
-      <button onClick={() => navigate(-1)}>Volver</button>
+      <button className={style.buttonBack} onClick={() => navigate(-1)}>Volver</button>
     </div>
   );
 };

@@ -1,16 +1,20 @@
 .cardContainer {
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
-    background-color: coral ;
+  background-color:yellowgreen ;
     padding: 2rem;
     border-radius: 20px;
-    width: 20rem;
+    width: 13.5rem;
+    gap: 1.5rem;
 }
 .name {
+  text-decoration: none;
+}
+.name h2{
     text-decoration: none;
     color: green;
     text-transform: capitalize;
+    margin: 0;
 }
 .imagePokemon {
     width: 10rem;
@@ -41,8 +45,11 @@
 .nameType {
     text-transform: capitalize;
     text-align: center;
-    margin-top: 0.5rem;
     font-weight: bold;
+    font-size: .8rem;
+    color: white;
+    margin: 0;
+    margin-top: .5rem;
 }
 
 .flying {

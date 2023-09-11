@@ -4,3 +4,13 @@
     align-items: center;
     gap: 1rem;
 }
+
+.buttonPage {
+    border: none;
+    background-color:yellowgreen;
+    color: white;
+    width: 5rem;
+    padding: .5rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
