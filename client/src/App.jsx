@@ -9,7 +9,7 @@ import { addPokemon, addPokemonFront, addToPokemonDB } from "./redux/actions";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
 import axios from "axios";
-axios.defaults.baseURL = 'http://localhost:3001'
+axios.defaults.baseURL = 'https://pokemon-pi-production-214f.up.railway.app'
 
 function App() {
   const pokemons = useSelector(state => state.pokemons);
