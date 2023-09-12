@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
-import style from './Filterstype.module.css'
+import style from './FiltersType.module.css'
 import { filterCards } from '../../redux/actions'
 
 const FiltersType = () => {
@@ -9,7 +9,7 @@ const FiltersType = () => {
   const [types, setTypes] = useState([])
 
   useEffect(() => {
-    axios('http://localhost:3001/types').then(({data}) => {
+    axios('/types').then(({data}) => {
       if(data) {
         setTypes(data)
       } else {

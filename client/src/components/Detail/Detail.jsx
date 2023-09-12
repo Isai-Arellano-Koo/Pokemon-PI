@@ -9,7 +9,7 @@ const Detail = () => {
   const [pokemon, setPokemon] = useState({});
 
   useEffect(() => {
-    axios(`http://localhost:3001/pokemons?name=${name}`)
+    axios(`/pokemons?name=${name}`)
       .then(({ data }) => {
         if (data.name) {
           setPokemon(data);

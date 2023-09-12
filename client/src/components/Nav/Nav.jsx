@@ -7,7 +7,7 @@ const Nav = ({ onSearch }) => {
   const location = useLocation()
   return (
     <nav className={style.nav}>
-      <Link to='/home'>
+      <Link to='/'>
         <img src={logo} alt="logo-pokemon" className={style.logo} />
       </Link>
 

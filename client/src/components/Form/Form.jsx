@@ -25,7 +25,7 @@ const Form = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios("http://localhost:3001/types")
+    axios("/types")
       .then(({ data }) => {
         if (data) {
           setTypes(data);

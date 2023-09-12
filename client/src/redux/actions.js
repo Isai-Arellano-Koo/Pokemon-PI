@@ -32,7 +32,7 @@ export const createPokemon = (newPokemon) => {
   return async (dispatch) => {
     try {
       const response = await axios.post(
-        "http://localhost:3001/pokemons",
+        "/pokemons",
         newPokemon
       );
       const data = response.data;
@@ -49,7 +49,7 @@ export const createPokemon = (newPokemon) => {
 export const pokemonsDB = () => {
   return async (dispatch) => {
     try {
-      const response = await axios("http://localhost:3001/db");
+      const response = await axios("/db");
       const data = response.data;
       return dispatch({
         type: "POKEMONS_DB",
@@ -65,7 +65,7 @@ export const addToPokemonDB = () => {
 
      return async (dispatch) => {
     try {
-      const response = await axios("http://localhost:3001/db");
+      const response = await axios("/db");
       const data = response.data;
       return dispatch({
         type: "ADD_POKEMONS_DB_ARRAY",

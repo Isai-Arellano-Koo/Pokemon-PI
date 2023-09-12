@@ -1,5 +1,4 @@
 import "./App.css";
-import axios from "axios";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Nav from "./components/Nav/Nav";
 import LandingPage from "./components/LandingPage/LandingPage";
@@ -9,6 +8,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { addPokemon, addPokemonFront, addToPokemonDB } from "./redux/actions";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
+import axios from "axios";
+axios.defaults.baseURL = 'http://localhost:3001'
 
 function App() {
   const pokemons = useSelector(state => state.pokemons);
@@ -18,7 +19,7 @@ function App() {
 
   // * Agregar los pokemons iniciales
   useEffect(() => {
-    axios("http://localhost:3001/pokemons").then(({ data }) => {
+    axios("/pokemons").then(({ data }) => {
       data.map(poke => dispatch(addPokemon(poke)))
     }).catch(error => {
       console.log(error)
@@ -34,7 +35,7 @@ function App() {
   const onSearch = async (name) => {
     try {
       const response = await axios(
-        `http://localhost:3001/pokemons?name=${name}`
+        `/pokemons?name=${name}`
       );
 
       const data = response.data;
