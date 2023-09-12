@@ -1,0 +1,20 @@
+.searchBar {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+.inputSearch {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(154, 149, 149, .5);
+    padding: .3rem;
+    max-width: 8rem;
+    color: white;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+.boton {
+    background-color: rgba(255, 254, 254, 0.491);
+    border: 2px solid rgba(154, 149, 149, .5);
+    color: rgb(21, 19, 19);
+
+}

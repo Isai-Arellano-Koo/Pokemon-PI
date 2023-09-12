@@ -1,0 +1,49 @@
+.landing {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+    position: relative;
+    height: 100vh;
+  
+}
+.homeButton {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    background-color: rgba(0, 0, 0, 0.246);
+    border: 1px solid rgba(255, 255, 255, 0.475);  
+    padding-top: .2rem;
+    padding-bottom: .2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    border-radius: 2rem;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+    background-color: rgba(255, 247, 0, 0.874);
+    text-decoration: none;
+}
+/* Landing.module.css */
+.arrow {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    /* border-right: 4px solid rgb(220, 215, 89);  */
+    border-right: 4px solid black; 
+    /* border-top: 4px solid rgb(220, 215, 89);  */
+    border-top: 4px solid black; 
+    transform: rotate(45deg); /* Rotar la flecha en 45 grados */
+    margin-left: 6px; /* Espacio entre el texto y la flecha */
+  }
+  
+
+.image {
+    width: 10rem;
+    position: absolute;
+    top: 10px; /* Ajusta la distancia desde la parte superior */
+    left: 50px; /* Ajusta la distancia desde la izquierda */
+}
+.imagePokeball {
+    max-width: 2.5rem;
+}

@@ -4,14 +4,14 @@ import style from "./Card.module.css";
 
 const Card = ({ image, name, types }) => {
   return (
-    <div className={style.cardContainer}>
-      <Link className={style.name} to={`/detail/${name}`}>
+    <Link to={`/detail/${name}`} className={style.cardContainer}>
+      <div className={style.name}>
         <h2>{name}</h2>
-      </Link>
+      </div>
 
-      <Link to={`/detail/${name}`}>
+      <div>
         <img className={style.imagePokemon} src={image} alt={name} />
-      </Link>
+      </div>
       <div className={style.typesContainer}>
         {types?.map((type) => (
           <div key={type.name}>
@@ -24,7 +24,7 @@ const Card = ({ image, name, types }) => {
           </div>
         ))}
       </div>
-    </div>
+    </Link>
   );
 };
 

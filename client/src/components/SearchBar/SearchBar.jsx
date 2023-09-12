@@ -1,10 +1,17 @@
 import { useState } from "react"
+import style from './SearchBar.module.css'
 
 
 const SearchBar = ({onSearch}) => {
     const [name, setName] = useState('')
 
-    const handleChange = () => {
+    const handleKeyPress = (e) => {
+      if (e.key === "Enter") {
+        handleSearch();
+      }
+    };
+
+    const handleSearch = () => {
         const inputName = document.getElementById('inputName');
         onSearch(inputName.value)
         setName(inputName.value)
@@ -12,9 +19,9 @@ const SearchBar = ({onSearch}) => {
     }
 
   return (
-    <div>
-    <input id='inputName' type='search'/>
-        <button onClick={handleChange}>Agregar</button>
+    <div className={style.searchBar}>
+    <input onKeyDown={handleKeyPress} className={style.inputSearch} id='inputName' type='search'/>
+        <button type='submit' className={style.boton} onClick={handleSearch}>Buscar</button>
     </div>
   )
 }

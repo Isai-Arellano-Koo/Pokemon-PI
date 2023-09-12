@@ -1,14 +1,21 @@
 import SearchBar from "../SearchBar/SearchBar";
 import { Link, useLocation } from "react-router-dom";
-import style from './Nav.module.css'
+import logo from "../../images/logopokemon.webp";
+import style from "./Nav.module.css";
 
-const Nav = ({onSearch}) => {
+const Nav = ({ onSearch }) => {
   const location = useLocation()
   return (
     <nav className={style.nav}>
-      <SearchBar onSearch={onSearch}/>
-      <Link to='/create'>Crear Pokemon</Link>
-      <Link to='/home'>Home</Link>
+      <Link to='/home'>
+        <img src={logo} alt="logo-pokemon" className={style.logo} />
+      </Link>
+
+      <Link to="/home">Home</Link>
+      {location.pathname !== '/create' ? <SearchBar onSearch={onSearch} /> : null}
+      
+      {location.pathname !== '/create' ? <Link to="/create">Crear Pokemon</Link> : null}
+      
     </nav>
   );
 };

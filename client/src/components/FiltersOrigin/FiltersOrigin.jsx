@@ -20,7 +20,7 @@ const FiltersOrigin = () => {
     <div>
         <p>Filter Origin: </p>
       <select className={style.select} onChange={handleFilter}>
-        <option>---Select</option>
+      <option value="" disabled>--Select</option>
         <option value='AllDB' >All</option>
         <option value='API'>API</option>
         <option value='DATABASE'>DATABASE</option>

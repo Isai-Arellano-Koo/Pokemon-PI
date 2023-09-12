@@ -1,9 +1,51 @@
+.titulo {
+  color: white;
+}
 .form {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
 }
+@media (max-width: 768px) {
+  .form {
+    flex-direction: column;
+  }
+}
+.campos {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 300px;
+}
+.campo {
+  display: flex;
+}
+.form label {
+  color: white;
+  flex: 1;
+}
+.form input {
+  flex: 2;
+  background-color: black;
+  border: 2px solid rgba(154, 149, 149, .5);
+  color: white;
+}
+.buttonTypes {
+  background-color: rgba(0, 0, 0, .7);
+  border: .5px solid gray;
+  border-radius: 20px;
+  color: white;
+  width: 4rem;
+  font-size: .7rem;
+}
+.buttonTypes:hover {
+  border: .5px solid rgba(255, 247, 0, 0.874);
+  box-shadow: 0px 0px 10px 1px rgba(255, 247, 0, 0.5);
+  cursor: pointer;
+}
+
 .typesContainer {
     max-width: 30rem;
     display: flex;
@@ -30,10 +72,25 @@
     font-weight: bold;
 }
 .active {
-    background-color: red;
+  background-color: rgba(255, 247, 0, 0.4);
+  border: .5px solid rgba(255, 247, 0, 0.874);
+  box-shadow: 0px 0px 10px 5px rgba(255, 247, 0, 0.5);
 }
 .errors {
   color: red;
+}
+.buttonSubmit {
+  background-color: rgb(255, 255, 255);
+  border: .5px solid gray;
+  color: black;
+  padding: 1rem;
+  border-radius: 20px;
+  font-weight: 900;
+}
+.buttonSubmit:hover {
+  cursor: pointer;
+  border: .5px solid rgba(255, 247, 0, 0.874);
+  box-shadow: 0px 0px 10px 1px rgba(255, 247, 0, 0.5);
 }
 
 
@@ -51,7 +108,6 @@
     background-repeat: no-repeat; 
     background-position: center center; 
   }
-  
   .ice {
     background-image: url(../../images/hielo.webp);
     background-size: cover;

@@ -1,7 +1,25 @@
 .nav {
     display: flex;
-    gap: 1rem;
+    gap: 8rem;
     justify-content: center;
-    background-color:burlywood;
-    padding: 1rem;
+    align-items: center;
+    background-color: rgba(95, 95, 95, 0.5);
+    padding: 1.5rem;
+}
+@media (max-width: 768px) {
+    .nav {
+        gap: 1.5rem;
+        flex-direction: column;
+    }
+}
+.logo {
+    max-width: 7rem;
+}
+.nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+.nav a:hover {
+    color: rgba(255, 247, 0, 1);
 }

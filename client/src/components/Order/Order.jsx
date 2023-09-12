@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux"
 import { orderCards } from "../../redux/actions"
+import style from "./Order.module.css"
 
 const Order = () => {
     const dispatch = useDispatch()
@@ -11,7 +12,7 @@ const Order = () => {
     <div>
         <p>Order: </p>
         <div>
-            <select onChange={handleOrder} defaultValue=''>
+            <select className={style.select} onChange={handleOrder} defaultValue=''>
                 <option value="" disabled>--Select</option>
                 <option value='default'>Default</option>
                 <option value="A-Z"> A-Z </option>
