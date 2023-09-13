@@ -135,7 +135,7 @@
     background-position: center center;
   }
   .shadow { 
-    background-image: url(../../images/volador.webp);
+    background-image: url(../../images/shadow.webp);
     background-size: cover;
     background-repeat: no-repeat; 
     background-position: center center;
@@ -153,7 +153,7 @@
     background-position: center center;
   }
   .unknown {
-    background-image: url(../../images/volador.webp);
+    background-image: url(../../images/unknown.webp);
     background-size: cover;
     background-repeat: no-repeat; 
     background-position: center center;

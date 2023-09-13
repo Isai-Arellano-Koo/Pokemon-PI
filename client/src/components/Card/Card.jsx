@@ -1,8 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./Card.module.css";
+import silueta from '../../images/silueta.webp'
 
 const Card = ({ image, name, types }) => {
+
+  const isImageValid = (url) => {
+    const img = new Image();
+    img.src = url;
+    return img.complete && img.naturalWidth > 0;
+  };
+
+  const isValidImage = isImageValid(image);
+
   return (
     <Link to={`/detail/${name}`} className={style.cardContainer}>
       <div className={style.name}>
@@ -10,7 +20,11 @@ const Card = ({ image, name, types }) => {
       </div>
 
       <div>
-        <img className={style.imagePokemon} src={image} alt={name} />
+       {isValidImage ? (
+          <img className={style.imagePokemon} src={image} alt={name} />
+        ) : (
+          <img className={style.imagePokemon} src={silueta} alt="Silueta" />
+        )}
       </div>
       <div className={style.typesContainer}>
         {types?.map((type) => (
@@ -28,17 +42,6 @@ const Card = ({ image, name, types }) => {
   );
 };
 
-{
-  /* <div className={style.typesContainer}>
-  {types?.map((type) => (
-    <div className={style.typesDiv}>
-      <span
-        className={`${style[type.name]} ${style.types}`}
-        key={type.name}
-      ></span>
-    </div>
-  ))}
-</div>; */
-}
 
 export default Card;
+
