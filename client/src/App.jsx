@@ -46,7 +46,7 @@ function App() {
       }
       
     } catch (error) {
-      console.log(error.message);
+      window.alert('Pokemon no encontrado');
     }
   };
 
