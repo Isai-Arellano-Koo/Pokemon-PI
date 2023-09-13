@@ -25,7 +25,7 @@ server.use((req, res, next) => {
 
 
 const corsOptions = {
-  origin: 'https://pi-pokemon-isai.vercel.app', 
+  origin: 'http://localhost:5731', 
   credentials: true, 
 };
 
