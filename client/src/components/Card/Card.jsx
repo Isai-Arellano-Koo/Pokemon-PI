@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import style from "./Card.module.css";
 
-const Card = ({ image, name, types }) => {
+const Card = ({ id, image, name, types, attack }) => {
   return (
-    <Link to={`/detail/${name}`} className={style.cardContainer}>
+    <Link to={`/detail/${id}`} className={style.cardContainer}>
       <div className={style.name}>
         <h2>{name}</h2>
       </div>
@@ -12,6 +12,7 @@ const Card = ({ image, name, types }) => {
       <div>
         <img className={style.imagePokemon} src={image} alt={name} />
       </div>
+      <p>Attack: {attack}</p>
       <div className={style.typesContainer}>
         {types?.map((type) => (
           <div key={type.name}>

@@ -28,8 +28,10 @@ const Cards = ({ pokemons }) => {
               return (
                 <Card
                   key={pokemon.id}
+                  id={pokemon.id}
                   image={pokemon.image}
                   name={pokemon.name}
+                  attack={pokemon.attack}
                   types={pokemon.types}
                 />
               );

@@ -11,6 +11,9 @@ import Form from "./components/Form/Form";
 import axios from "axios";
 axios.defaults.baseURL = 'https://pokemon-pi-production-214f.up.railway.app'
 
+// https://pokemon-pi-production-214f.up.railway.app
+// http://localhost:3001
+
 function App() {
   const pokemons = useSelector(state => state.pokemons);
   const dispatch = useDispatch();
@@ -57,7 +60,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/home" element={<Cards pokemons={pokemons} />} />
-        <Route path="/detail/:name" element={<Detail/>} />
+        <Route path="/detail/:id" element={<Detail/>} />
         <Route path="/create" element={<Form/>}/>
       </Routes>
     </div>

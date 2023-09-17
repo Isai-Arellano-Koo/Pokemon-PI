@@ -23,3 +23,14 @@
 .nav a:hover {
     color: rgba(255, 247, 0, 1);
 }
+.nav .crearPokemon {
+    background-color: rgba(255, 247, 0, 0.874);
+    color: black;
+    padding: .5rem;
+    border-radius: 1rem;
+    border:  rgba(255, 255, 255, 0.475);
+}
+.nav .crearPokemon:hover {
+    color: black;
+    border: 1px solid rgba(255, 130, 5, 0.551);
+}

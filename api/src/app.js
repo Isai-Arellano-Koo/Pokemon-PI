@@ -23,6 +23,8 @@ server.use((req, res, next) => {
   next();
 });
 
+// http://localhost:5173
+// https://pi-pokemon-isai.vercel.app
 
 const corsOptions = {
   origin: 'https://pi-pokemon-isai.vercel.app', 

@@ -4,8 +4,7 @@ export const validation = (dataForm, errors, setErrors) => {
       ...errors,
       name: "El nombre no puede superar los 30 caracteres",
     });
-  }
-  else if (/\d/.test(dataForm.name)) {
+  } else if (/\d/.test(dataForm.name)) {
     setErrors({ ...errors, name: "El nombre no debe contener números" });
   } else {
     setErrors((prevErrors) => ({ ...prevErrors, name: "" }));
@@ -81,5 +80,25 @@ export const validation = (dataForm, errors, setErrors) => {
     }));
   } else {
     setErrors((prevErrors) => ({ ...prevErrors, weight: "" }));
+  }
+  
+  // ! VALIDAR QUE LA URL DE LA IMAGEN SEA CORRECTA
+  if (dataForm.image) {
+    // Expresión regular para buscar extensiones de imagen válidas
+    const validImageExtensions = /\.(jpg|jpeg|png|gif|bmp|webp)/i;
+
+    if (!validImageExtensions.test(dataForm.image)) {
+      // Si la extensión no se encuentra en la URL, muestra un error
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        image: 'La URL de la imagen no es válida. Debe contener una extensión válida (jpg, jpeg, png, gif, bmp, webp).',
+      }));
+    } else {
+      // La URL y la extensión de imagen son válidas
+      setErrors((prevErrors) => ({ ...prevErrors, image: '' }));
+    }
+  } else {
+    // La URL de la imagen está vacía, no hay error
+    setErrors((prevErrors) => ({ ...prevErrors, image: '' }));
   }
 };

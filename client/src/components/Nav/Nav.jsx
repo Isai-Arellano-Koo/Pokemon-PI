@@ -14,7 +14,7 @@ const Nav = ({ onSearch }) => {
       <Link to="/home">Home</Link>
       {location.pathname !== '/create' ? <SearchBar onSearch={onSearch} /> : null}
       
-      {location.pathname !== '/create' ? <Link to="/create">Crear Pokemon</Link> : null}
+      {location.pathname !== '/create' ? <Link className={style.crearPokemon} to="/create">Crear Pokemon</Link> : null}
       
     </nav>
   );

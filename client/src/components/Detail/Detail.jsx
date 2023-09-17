@@ -5,11 +5,11 @@ import style from "./Detail.module.css";
 
 const Detail = () => {
   const navigate = useNavigate();
-  const { name } = useParams();
+  const { id } = useParams();
   const [pokemon, setPokemon] = useState({});
 
   useEffect(() => {
-    axios(`/pokemons?name=${name}`)
+    axios(`/pokemons/${id}`)
       .then(({ data }) => {
         if (data.name) {
           setPokemon(data);

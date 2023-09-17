@@ -120,6 +120,7 @@ const Form = () => {
               value={dataForm.image}
               onChange={handleInputChange}
             />
+            <span className={style.errors}>{errors.image}</span>
           </div>
           <div className={style.campo}>
             <label>HP: </label>
