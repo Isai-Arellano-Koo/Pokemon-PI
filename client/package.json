@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@notus-pro/react": "^1.0.1",
     "axios": "^1.4.0",
     "jest": "^29.6.4",
     "lodash": "^4.17.21",
